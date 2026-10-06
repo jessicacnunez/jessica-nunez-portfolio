@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jessica Nunez — Content Design</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#F5EEDF}
+  a{color:#26202B}
+  a:hover{color:#C1401E}
+
+  .topnav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 72px;background:rgba(245,238,223,0.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(38,32,43,0.12)}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand span{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:19px;color:#26202B}
+  .topnav-links{display:flex;gap:34px}
+  .topnav-link{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:17px;color:#26202B;text-decoration:none;display:inline-block;width:fit-content;border-bottom:1px solid transparent;padding-bottom:3px;transition:color .15s ease,border-color .15s ease;position:relative}
+  .topnav-link:hover{color:#C1401E;border-bottom-color:#C1401E}
+  .topnav-link.active{color:#C1401E}
+  .topnav-link.active::after{content:'';position:absolute;left:50%;bottom:-8px;width:4px;height:4px;border-radius:50%;background:#C1401E;transform:translateX(-50%)}
+  .page{max-width:1400px;margin:0 auto}
+
+  .section{padding:96px 72px}
+  .hero-body{display:grid;grid-template-columns:1fr 190px;gap:64px;align-items:start}
+  .hero-bio{font-family:'Space Grotesk',sans-serif;font-size:19px;line-height:1.55;max-width:56ch;margin:0;color:#26202B}
+  .section-grid{display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start}
+  .section-grid h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,2.6vw,34px);line-height:1.15;margin:0;color:#26202B}
+
+  .approach-item{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:28px 0;border-top:1px solid rgba(38,32,43,0.15)}
+  .approach-item:last-child{border-bottom:1px solid rgba(38,32,43,0.15)}
+  .approach-item h3{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:22px;margin:0;color:#26202B}
+  .approach-item p{margin:0;font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.6;max-width:52ch;color:#26202B}
+
+  .work-module{border-top:2px solid #26202B;border-bottom:2px solid #26202B}
+  .work-featured{display:grid;grid-template-columns:1fr 150px;gap:24px;align-items:end;padding:40px 0 36px 0}
+  .work-featured h3{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,3.4vw,40px);margin:0 0 14px 0;color:#26202B}
+  .role-list{margin:0 0 22px 0;display:flex;flex-direction:column;gap:10px}
+  .role-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-left:16px;border-left:2px solid #C1401E}
+  .role-title{font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:#26202B}
+  .role-dates{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#4A5A38;white-space:nowrap}
+  .work-featured p{font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.55;max-width:64ch;margin:0 0 24px 0;color:#26202B}
+  .work-list-secondary-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#4A5A38;margin:0 0 4px 0}
+  .work-list-secondary{border-top:1px solid rgba(38,32,43,0.15)}
+  .work-row-secondary{display:grid;grid-template-columns:1fr 150px;gap:24px;padding:26px 0;align-items:baseline;border-bottom:1px solid rgba(38,32,43,0.15)}
+  .work-row-secondary h4{font-family:'Fraunces',serif;font-weight:600;font-size:20px;margin:0 0 6px 0;color:#26202B}
+  .work-row-secondary p{margin:0;font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.5;max-width:56ch;color:#26202B}
+  .work-status{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#4A5A38;text-align:right;line-height:1.5}
+
+  .contact-pill{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14px;color:#6E3159;background:#F5EEDF;text-decoration:none;border-radius:999px;padding:11px 22px;transition:background .15s ease,color .15s ease}
+  .contact-pill:hover{background:#C1401E;color:#F5EEDF}
+
+  @media (max-width:860px){
+    .topnav{padding:18px 22px;flex-wrap:wrap;gap:14px}
+    .topnav-links{gap:16px 18px;flex-wrap:wrap}
+    .topnav-link{font-size:15px}
+    .section{padding:64px 24px}
+    .hero-body{grid-template-columns:1fr}
+    .section-grid{grid-template-columns:1fr;gap:20px}
+    .approach-item{grid-template-columns:1fr;gap:10px}
+    .work-featured{grid-template-columns:1fr}
+    .work-row-secondary{grid-template-columns:1fr}
+    .work-status{text-align:left;margin-top:6px}
+    .wall-bleed{margin:0 -24px 0 0 !important}
+    .wall-bleed > figcaption{padding-right:24px !important}
+  }
+
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <a class="brand" href="index.html">
+    <svg width="26" height="26" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#C1401E">
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(72 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(144 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(216 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(288 20 20)"/>
+      </g>
+      <circle cx="20" cy="20" r="4.5" fill="#F5EEDF"/>
+    </svg>
+    <span>Jessica Nunez</span>
+  </a>
+  <nav class="topnav-links">
+    <a class="topnav-link active" href="index.html">Home</a>
+    <a class="topnav-link" href="portfolio.html">Portfolio</a>
+    <a class="topnav-link" href="https://linkedin.com/in/jessicacnunez" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="topnav-link" href="resume.html">Resume</a>
+  </nav>
+</header>
+
+<div class="page">
+
+  <div class="content">
+
+    <div class="section" id="about" style="padding-top:64px">
+      <div style="margin-bottom:48px">
+        <div data-key="hero-line1" style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(42px,7.4vw,104px);line-height:0.94;letter-spacing:-0.015em;color:#26202B">Content designed</div>
+        <div data-key="hero-line2" style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(28px,3.7vw,52px);line-height:1.05;margin:2px 0 8px 0;color:#26202B">for people</div>
+        <div data-key="hero-line3" style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(42px,7.4vw,104px);line-height:0.94;letter-spacing:-0.015em;color:#26202B">who skim first,</div>
+        <div data-key="hero-line4" style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(28px,3.7vw,52px);line-height:1.05;margin:2px 0 0 0;color:#26202B">read second.</div>
+      </div>
+
+      <div class="hero-body">
+        <p class="hero-bio" data-key="hero-bio">
+          I'm Jessica, a content design leader who spent the last few years untangling Meta's ad systems into language and experiences people could actually use. Before that, I was product owner and digital strategy lead at Blue Cross Blue Shield of Michigan, and before that, I worked in newsrooms. I still write like deadlines are real, because in this job, they are.
+        </p>
+        <figure class="hero-photo" style="margin:0">
+          <img src="assets/jessica.jpg" alt="Portrait of Jessica Nunez" style="width:100%;height:240px;object-fit:cover;display:block;border-radius:10px;filter:grayscale(15%) contrast(1.05)">
+          <figcaption data-key="portrait-caption" style="font-family:'Space Grotesk',sans-serif;font-size:13px;margin-top:12px;color:#4A5A38">Based in Michigan, working with teams everywhere.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="section" id="work" style="padding-top:48px">
+     <div class="section-grid">
+      <h2 data-key="work-heading">Selected work</h2>
+      <div>
+      <div class="work-module">
+        <div class="work-featured">
+          <div>
+            <h3 data-key="meta-title">Meta, Ad products</h3>
+            <div class="role-list" data-key="meta-roles">
+              <div class="role-row"><span class="role-title">Content Design Manager</span><span class="role-dates">2024–2026</span></div>
+              <div class="role-row"><span class="role-title">Staff Content Designer</span><span class="role-dates">2020–2024</span></div>
+            </div>
+            <p data-key="meta-description">Led content design for some of the highest stakes advertiser products: budget, bidding, audience and delivery. Supported eight content designers in North America and Europe and led cross-functional product strategy across eight product teams.</p>
+          </div>
+          <span class="work-status"><a href="case-study-meta.html" style="color:#4A5A38;text-decoration:underline;text-underline-offset:3px">See case studies</a></span>
+        </div>
+
+        <p class="work-list-secondary-label" data-key="more-experience-label" style="margin-top:8px">More experience</p>
+        <div class="work-list-secondary">
+          <div class="work-row-secondary">
+            <div>
+              <h4 data-key="bcbsm-title">Blue Cross Blue Shield of Michigan</h4>
+              <p data-key="bcbsm-description">Led digital strategy and product ownership for bcbsm.com, the public-facing website of a health insurer with 7M+ members</p>
+            </div>
+            <span class="work-status">2013–2020<br><a href="case-study-bcbsm.html" style="color:#4A5A38;text-decoration:underline;text-underline-offset:3px">See case studies</a></span>
+          </div>
+          <div class="work-row-secondary" style="border-bottom:none">
+            <div>
+              <h4 data-key="earlycareer-title">Where the writing started</h4>
+              <p data-key="earlycareer-description">Digital journalism at MLive and Patch and health reporting with the Association of Health Care Journalists. That's where I learned that almost nobody makes it past paragraph three.</p>
+            </div>
+            <span class="work-status">Early career</span>
+          </div>
+        </div>
+      </div>
+
+      <p data-key="portfolio-note" style="margin:28px 0 0 0;font-family:'Space Grotesk',sans-serif;font-size:14px;color:#4A5A38">You can see full case studies in my&nbsp;<a href="portfolio.html" style="text-decoration:underline;text-underline-offset:3px">password-protected portfolio</a>.</p>
+      </div>
+     </div>
+    </div>
+
+    <div class="section" id="approach">
+     <div class="section-grid">
+      <h2 data-key="approach-heading">How I work</h2>
+      <div>
+      <div class="approach-item">
+        <h3 data-key="approach1-title">Plain over clever</h3>
+        <p data-key="approach1-body">It shouldn't require a glossary to understand what a button does. I make every interaction obvious and intuitive.</p>
+      </div>
+      <div class="approach-item">
+        <h3 data-key="approach2-title">Systems, not screens</h3>
+        <p data-key="approach2-body">I look at experiences and language end to end, including before and after someone uses the product. It should all work together.</p>
+      </div>
+      <div class="approach-item">
+        <h3 data-key="approach3-title">Research is the rough draft</h3>
+        <p data-key="approach3-body">A survey, a support ticket, a decade of journalism instinct: it's all source material. Content design is just the edit.</p>
+      </div>
+      </div>
+     </div>
+    </div>
+
+    <div class="section" id="inspired">
+     <div class="section-grid">
+      <h2 data-key="walls-heading">What's on my walls</h2>
+      <div>
+      <p data-key="walls-intro" style="margin:0 0 40px 0;font-family:'Space Grotesk',sans-serif;font-size:16px;max-width:60ch;line-height:1.55;color:#26202B">Two pieces of art hanging in my house. I love graphic patterns, bold colors and anything with flowers. Florals bring nature inside, especially in the winter.</p>
+      <div class="wall-bleed" style="margin:0 -72px 40px 0">
+        <img src="assets/floral-print.jpg" alt="Painted floral print in coral, gold and pink" style="width:100%;height:380px;object-fit:cover;display:block">
+        <figcaption data-key="floral-caption" style="font-family:'Fraunces',serif;font-style:italic;font-size:15px;margin-top:12px;color:#4A5A38;padding-right:72px">A hand-painted floral print I bought at a thrift shop in Cadillac, MI.</figcaption>
+      </div>
+      <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap">
+        <figure style="width:220px;margin:0;flex:0 0 220px">
+          <img src="assets/embroidery-poppy.jpg" alt="Embroidered orange poppy artwork" style="width:100%;height:190px;object-fit:cover;display:block;border-radius:6px">
+          <figcaption data-key="poppy-caption" style="font-family:'Fraunces',serif;font-style:italic;font-size:13px;margin-top:10px;color:#4A5A38">An embroidered poppy I love.</figcaption>
+        </figure>
+        <p data-key="poppy-support" style="flex:1 1 320px;margin:6px 0 0 0;font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.6;max-width:46ch;color:#4A5A38">You'll find floral art in almost every corner of my home and even on my body. I have two tattoos of roses and hibiscus.</p>
+      </div>
+      </div>
+     </div>
+    </div>
+
+    <div class="section" id="contact" style="background:#6E3159;padding-top:120px;padding-bottom:120px">
+      <h2 data-key="contact-heading" style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(44px,7vw,88px);margin:0 0 20px 0;color:#F5EEDF">Let's talk shop.</h2>
+      <p data-key="contact-intro" style="margin:0 0 40px 0;font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.55;max-width:48ch;color:rgba(245,238,223,0.68)">Open to senior and staff content design roles. Reach out if you want to chat.</p>
+      <div style="display:flex;flex-direction:column;gap:22px;align-items:flex-start">
+        <a href="mailto:jessicacnunez@gmail.com" style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,3.4vw,40px);color:#C1401E;text-decoration:none;border-bottom:3px solid #C1401E;line-height:1.2">jessicacnunez@gmail.com</a>
+        <a href="https://linkedin.com/in/jessicacnunez" class="contact-pill">linkedin.com/in/jessicacnunez</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer style="background:#6E3159;padding:0 72px 48px 72px;font-family:'Space Grotesk',sans-serif;font-size:12px;color:rgba(245,238,223,0.6)">© 2026 Jessica Nunez</footer>
+
+</body>
+</html>

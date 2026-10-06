@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume — Jessica Nunez</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#F5EEDF}
+  a{color:#26202B}
+  a:hover{color:#C1401E}
+
+  .topnav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 72px;background:rgba(245,238,223,0.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(38,32,43,0.12)}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand span{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:19px;color:#26202B}
+  .topnav-links{display:flex;gap:34px}
+  .topnav-link{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:17px;color:#26202B;text-decoration:none;display:inline-block;width:fit-content;border-bottom:1px solid transparent;padding-bottom:3px;transition:color .15s ease,border-color .15s ease}
+  .topnav-link:hover,.topnav-link.active{color:#C1401E;border-bottom-color:#C1401E}
+  .page{max-width:1400px;margin:0 auto}
+  .section{padding:0 72px}
+
+  .r-h2{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;color:#C1401E;margin:0 0 26px 0}
+  .r-block{margin-bottom:64px}
+  .r-role{font-family:'Fraunces',serif;font-weight:600;font-size:24px;margin:0 0 4px 0;color:#26202B}
+  .r-meta{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#4A5A38;margin:0 0 16px 0}
+  .r-bullets{margin:0;padding-left:20px;font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.6;color:#26202B;max-width:74ch}
+  .r-bullets li{margin-bottom:10px}
+  .r-bullets li:last-child{margin-bottom:0}
+  .r-entry + .r-entry{margin-top:40px}
+
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 56px}
+  .skill-cat{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:#26202B;margin:0 0 6px 0}
+  .skill-list{font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.55;color:#4A5A38;margin:0}
+
+  .earlier-row{display:grid;grid-template-columns:1fr 2fr;gap:24px;padding:24px 0}
+  .earlier-row + .earlier-row{border-top:1px solid rgba(38,32,43,0.15)}
+  .earlier-list{border-top:2px solid #26202B;border-bottom:2px solid #26202B}
+
+  .r-subrole{margin-bottom:28px}
+  .r-subrole:last-child{margin-bottom:0}
+  .r-subtitle{font-family:'Fraunces',serif;font-weight:600;font-size:18px;margin:0 0 2px 0;color:#26202B}
+  .r-submeta{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#4A5A38;margin:0 0 12px 0}
+
+  @media (max-width:860px){
+    .topnav{padding:18px 22px;flex-wrap:wrap;gap:14px}
+    .topnav-links{gap:16px 18px;flex-wrap:wrap}
+    .topnav-link{font-size:15px}
+    .section{padding:0 24px}
+    .skills-grid{grid-template-columns:1fr}
+    .earlier-row{grid-template-columns:1fr;gap:6px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <a class="brand" href="index.html">
+    <svg width="26" height="26" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#C1401E">
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(72 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(144 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(216 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(288 20 20)"/>
+      </g>
+      <circle cx="20" cy="20" r="4.5" fill="#F5EEDF"/>
+    </svg>
+    <span>Jessica Nunez</span>
+  </a>
+  <nav class="topnav-links">
+    <a class="topnav-link" href="index.html">Home</a>
+    <a class="topnav-link" href="portfolio.html">Portfolio</a>
+    <a class="topnav-link" href="https://linkedin.com/in/jessicacnunez" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="topnav-link active" href="resume.html">Resume</a>
+  </nav>
+</header>
+
+<div class="page">
+
+  <div class="section" style="padding-top:80px;padding-bottom:56px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px">
+      <div>
+        <h1 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(38px,5.5vw,64px);margin:0 0 8px 0;letter-spacing:-0.01em;color:#26202B">Jessica Nunez</h1>
+        <div data-key="tagline" style="font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(18px,2.2vw,26px);color:#26202B;margin-bottom:16px">UX Content Design Leader</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;color:#4A5A38;display:flex;gap:18px;flex-wrap:wrap">
+          <span>Detroit, MI</span>
+          <a href="mailto:jessicacnunez@gmail.com" style="text-decoration:underline;text-underline-offset:3px">jessicacnunez@gmail.com</a>
+          <a href="https://linkedin.com/in/jessicacnunez" style="text-decoration:underline;text-underline-offset:3px">linkedin.com/in/jessicacnunez</a>
+        </div>
+      </div>
+      <a href="assets/jessica-nunez-resume.pdf" download style="flex:0 0 auto;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14px;color:#F5EEDF;background:#26202B;padding:13px 22px;text-decoration:none;border-radius:2px;transition:background .15s ease">Download PDF</a>
+    </div>
+    <div style="height:2px;width:56px;background:#C1401E;margin:32px 0 0 0"></div>
+  </div>
+
+  <div class="section r-block">
+    <p data-key="summary" style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:18px;line-height:1.6;max-width:78ch;color:#26202B">
+      Content design leader with 15+ years of experience driving UX writing, content strategy, and terminology systems at enterprise scale. Spent 5+ years at Meta leading content design across the global advertising platform, influencing products generating 3.65% incremental revenue, building AI-driven workflows adopted company-wide, and managing a team of 8 across ~50 product launches. Known for research-informed craft, cross-functional influence, and work that moves business metrics. Passionate about crafting experiences that connect people, whether through clear product language, naming systems, or conversational flows that build trust at scale.
+    </p>
+  </div>
+
+  <div class="section r-block">
+    <h2 class="r-h2">Skills</h2>
+    <div class="skills-grid">
+      <div>
+        <p class="skill-cat" data-key="skill-cat1">Content &amp; Product Design</p>
+        <p class="skill-list" data-key="skill-list1">Content Strategy · UX Writing · Terminology &amp; Naming Systems · Information Architecture · Design Thinking · Content Operations · Figma</p>
+      </div>
+      <div>
+        <p class="skill-cat" data-key="skill-cat2">AI &amp; Emerging Tools</p>
+        <p class="skill-list" data-key="skill-list2">Prompt Engineering · AI-assisted Prototyping (FigmaMake) · Vibe Coding (Claude + VS Code) · AI Workflow Design · Content Automation</p>
+      </div>
+      <div>
+        <p class="skill-cat" data-key="skill-cat3">Product Management</p>
+        <p class="skill-list" data-key="skill-list3">Agile / Scrum · Product Ownership · Roadmap Planning · Cross-functional Leadership · JIRA · Sprint Planning · 0-to-1 Product Development</p>
+      </div>
+      <div>
+        <p class="skill-cat" data-key="skill-cat4">Research &amp; Analytics</p>
+        <p class="skill-list" data-key="skill-list4">User Research · Usability Testing · Digital Analytics · A/B Experimentation · Customer Experience · Data-informed Design</p>
+      </div>
+      <div>
+        <p class="skill-cat" data-key="skill-cat5">Leadership &amp; Operations</p>
+        <p class="skill-list" data-key="skill-list5">Team Leadership · Performance Coaching · Hiring &amp; Org Scaling · Stakeholder Alignment · Workshop Facilitation · AI Workflow Development</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section r-block">
+    <h2 class="r-h2">Experience</h2>
+
+    <div class="r-entry">
+      <h3 class="r-role" data-key="meta-company">Meta</h3>
+      <p class="r-meta">2020–2026</p>
+
+      <div class="r-subrole">
+        <p class="r-subtitle" data-key="meta-role1-title">Content Design Manager, Ads</p>
+        <p class="r-submeta" data-key="meta-role1-meta">2024–2026</p>
+        <ul class="r-bullets" data-key="meta-role1-bullets">
+          <li>Led content strategy and UX writing for Meta's advertising platform, directly influencing products that generated 3.65% incremental revenue across ~50 product launches in 2025</li>
+          <li>Managed and coached a team of 8 content designers across North America and Europe, partnering with 20+ engineering teams plus Product Marketing, Sales, and Ops</li>
+          <li>Coordinated 30+ content designers across 9 orgs to audit and rewrite 12,500+ in-product strings for Meta's largest-ever account system change, achieving 97–98% completion ahead of a company-wide launch</li>
+          <li>Facilitated cross-org workshops across Design, Research, Product Marketing, and PM to realign product architecture for a critical UI surface supporting 10+ simultaneous product launches</li>
+          <li>Architected an AI-powered content audit workflow adopted company-wide, using FigmaMake, Claude, and VS Code to accelerate content operations</li>
+        </ul>
+      </div>
+
+      <div class="r-subrole">
+        <p class="r-subtitle" data-key="meta-role2-title">Staff Content Designer, Ads</p>
+        <p class="r-submeta" data-key="meta-role2-meta">2020–2024</p>
+        <ul class="r-bullets" data-key="meta-role2-bullets">
+          <li>Drove content and design strategy for Meta's Value ad product portfolio as a Staff IC, contributing to growth from 5.9% to 10.2% of total Meta ad revenue in one year; 96% of new revenue was enabled by content and UI changes including in-product guidance, product naming, and usability improvements</li>
+          <li>Named and launched 7+ ad products and concepts end-to-end, including two new attribution products that exceeded $5B ARR combined and one (Conversion Leads Optimization) that exited beta at $53M ARR versus a $12M goal</li>
+          <li>Wrote content principles and terminology systems used as the reference standard across the advertising platform's content design practice</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="r-entry">
+      <h3 class="r-role" data-key="bcbsm-company">Blue Cross Blue Shield of Michigan</h3>
+      <p class="r-meta">2013–2020</p>
+
+      <div class="r-subrole">
+        <p class="r-subtitle" data-key="bcbsm-role1-title">Product Owner &amp; Digital Strategy Manager</p>
+        <p class="r-submeta" data-key="bcbsm-role1-meta">2018–2020</p>
+        <ul class="r-bullets" data-key="bcbsm-role1-bullets">
+          <li>Led digital strategy and product ownership for bcbsm.com, the public-facing website of a health insurer with 7M+ members; drove a 10-point increase in customer satisfaction scores over 18 months through strategic UX enhancements</li>
+          <li>Spearheaded a full-site redesign and platform migration in partnership with an external agency, lobbying internally for a company-wide CMS to unify asset management across external and internal channels</li>
+        </ul>
+      </div>
+
+      <div class="r-subrole">
+        <p class="r-subtitle" data-key="bcbsm-role2-title">Project Manager &amp; Scrum Master</p>
+        <p class="r-submeta" data-key="bcbsm-role2-meta">2015–2018</p>
+        <ul class="r-bullets" data-key="bcbsm-role2-bullets">
+          <li>Led an agile web development team as Scrum Master, maintaining low sprint volatility and completing a major site redesign in 7 months from kickoff through implementation</li>
+        </ul>
+      </div>
+
+      <div class="r-subrole">
+        <p class="r-subtitle" data-key="bcbsm-role3-title">Web Editor</p>
+        <p class="r-submeta" data-key="bcbsm-role3-meta">2013–2015</p>
+        <ul class="r-bullets" data-key="bcbsm-role3-bullets">
+          <li>Wrote and managed digital content using UX best practices including plain language, SEO, and user experience design principles; served as QA Editor ensuring project delivery met company quality standards</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section r-block">
+    <h2 class="r-h2">Earlier experience</h2>
+    <div class="earlier-list">
+      <div class="earlier-row">
+        <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:19px;margin:0;color:#26202B">Patch.com<br><span style="font-weight:400;font-style:italic;font-size:15px">Regional Editor</span></h3>
+        <p data-key="patch-description" style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.55;color:#26202B">Managed 18 remote editors and led audience development across 30 local news websites through content strategy, SEO, and analytics-driven editorial decisions.</p>
+      </div>
+      <div class="earlier-row">
+        <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:19px;margin:0;color:#26202B">MLive.com<br><span style="font-weight:400;font-style:italic;font-size:15px">Associate Web Producer</span></h3>
+        <p data-key="mlive-description" style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.55;color:#26202B">Produced daily digital content with SEO focus; managed site-wide entertainment projects and weekly analytics reporting.</p>
+      </div>
+      <div class="earlier-row">
+        <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:19px;margin:0;color:#26202B">Association of Health Care Journalists<br><span style="font-weight:400;font-style:italic;font-size:15px">Web Producer</span></h3>
+        <p data-key="ahcj-description" style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.55;color:#26202B">Produced content for a professional journalism organization; created original web features including an interactive 2008 presidential health care policy tracker.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="display:flex;gap:80px;flex-wrap:wrap;padding-bottom:110px">
+    <div style="flex:1 1 260px">
+      <h2 class="r-h2">Certifications</h2>
+      <p data-key="certifications" style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:16px;color:#26202B">Certified Scrum Product Owner</p>
+    </div>
+    <div style="flex:1 1 260px">
+      <h2 class="r-h2">Education</h2>
+      <p style="margin:0 0 6px 0;font-family:'Space Grotesk',sans-serif;font-size:16px;color:#26202B"><strong>University of Missouri – Columbia</strong></p>
+      <p data-key="education-detail" style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.55;color:#4A5A38">Master of Arts in Journalism<br>Bachelor of Journalism / Bachelor of Arts in Spanish</p>
+    </div>
+  </div>
+
+</div>
+
+<footer style="padding:28px 72px 48px;font-family:'Space Grotesk',sans-serif;font-size:12px;color:#4A5A38">© 2026 Jessica Nunez</footer>
+
+</body>
+</html>

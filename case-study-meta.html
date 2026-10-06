@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta — Ads Platform Case Study — Jessica Nunez</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#F5EEDF;overflow-anchor:none}
+  a{color:#26202B}
+  a:hover{color:#C1401E}
+
+  .topnav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 72px;background:rgba(245,238,223,0.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(38,32,43,0.12)}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand span{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:19px;color:#26202B}
+  .topnav-links{display:flex;gap:34px}
+  .topnav-link{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:17px;color:#26202B;text-decoration:none;display:inline-block;width:fit-content;border-bottom:1px solid transparent;padding-bottom:3px;transition:color .15s ease,border-color .15s ease}
+  .topnav-link:hover,.topnav-link.active{color:#C1401E;border-bottom-color:#C1401E}
+  .section{padding:0 72px;max-width:1400px;margin:0 auto}
+
+  .gate{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:40px 24px}
+  .gate-card{max-width:380px;width:100%;text-align:center}
+  .gate-card h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,40px);margin:0 0 14px 0;color:#26202B}
+  .gate-card p{font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.5;color:#4A5A38;margin:0 0 28px 0}
+  .gate-form{display:flex;flex-direction:column;gap:12px}
+  .gate-input{font-family:'Space Grotesk',sans-serif;font-size:16px;padding:13px 16px;border:1px solid rgba(38,32,43,0.3);background:#fff;color:#26202B;border-radius:2px}
+  .gate-input:focus{outline:2px solid #C1401E;outline-offset:1px}
+  .gate-submit{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;padding:13px 16px;background:#26202B;color:#F5EEDF;border:none;cursor:pointer;transition:background .15s ease;border-radius:2px}
+  .gate-submit:hover{background:#C1401E}
+  .gate-error{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#C1401E;min-height:18px;margin-top:2px}
+  .hidden{display:none}
+
+  .back-link{font-family:'Space Grotesk',sans-serif;font-size:14px;color:#4A5A38;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .back-link:hover{color:#C1401E}
+
+  .cs-role{font-family:'Space Grotesk',sans-serif;font-size:14px;color:#4A5A38;margin:0 0 6px 0}
+  .cs-title-row{display:flex;align-items:center;gap:18px;margin:0 0 10px 0}
+  .cs-meta-icon{height:clamp(42px,6.6vw,80px);width:auto;display:block;flex:0 0 auto}
+  h1.cs-title{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(52px,8vw,96px);line-height:0.98;margin:0;letter-spacing:-0.02em;color:#26202B}
+  .cs-subtitle{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(22px,2.8vw,32px);line-height:1.25;color:#26202B;margin:0 0 24px 0;max-width:36ch}
+  .cs-lede{font-family:'Space Grotesk',sans-serif;font-size:18px;line-height:1.6;max-width:70ch;color:#26202B;margin:0}
+
+  .jumpnav{display:flex;flex-wrap:wrap;column-gap:36px;row-gap:12px}
+  .jumpnav a{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(16px,1.8vw,19px);color:#26202B;text-decoration:underline;text-decoration-color:rgba(38,32,43,0.28);text-underline-offset:5px;transition:color .2s ease,text-decoration-color .2s ease}
+  .jumpnav a:hover{color:#C1401E;text-decoration-color:#C1401E}
+
+  .cs-band{padding-top:96px;padding-bottom:96px}
+
+  .cs-section h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,3.6vw,42px);margin:0 0 20px 0;max-width:20ch;color:#26202B}
+  .cs-theme-tags{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;color:#C98A26;margin:0 0 16px 0}
+  .cs-theme-tags.rust{color:#C1401E}
+  .cs-theme-tags.plum{color:#6E3159}
+  .cs-theme-tags.sage{color:#4A5A38}
+  .cs-theme-tags .sep{color:#26202B;opacity:0.35;margin:0 8px}
+  .my-role{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;line-height:1.4;color:#26202B;margin:0 0 32px 0}
+  .cs-role-tag{display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#F5EEDF;background:#26202B;padding:4px 10px;border-radius:3px;flex:0 0 auto}
+  .cs-problem{font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.6;max-width:66ch;color:#26202B;margin:0 0 16px 0}
+  .cs-problem.lead{margin-bottom:10px}
+  .cs-problem-list{margin:0 0 16px 0;padding-left:20px;font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.6;color:#26202B;max-width:64ch}
+  .cs-problem-list li{margin-bottom:2px}
+  .cs-problem[data-key$="-problem-challenge"]{margin-bottom:28px}
+
+  .term{position:relative;display:inline-block;border-bottom:1px dotted #4A5A38;cursor:help}
+  .term:hover,.term:focus{outline:none;border-bottom-color:#C1401E}
+  .term .term-tip{position:absolute;left:0;top:calc(100% + 10px);width:260px;max-width:calc(100vw - 48px);background:#fff;border:1px solid rgba(38,32,43,0.12);border-top:3px solid #C98A26;border-radius:4px;box-shadow:0 10px 30px rgba(38,32,43,0.15);padding:14px 16px;font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:13.5px;line-height:1.5;color:#26202B;white-space:normal;text-align:left;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .15s ease,transform .15s ease;pointer-events:none;z-index:30}
+  .term:hover .term-tip,.term:focus .term-tip{opacity:1;visibility:visible;transform:translateY(0)}
+
+  .cs-stage{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(20px,2.2vw,25px);letter-spacing:-0.01em;color:#26202B;margin:0 0 16px 0}
+  .cs-approach{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:66ch}
+  .cs-approach li{font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.55;color:#26202B}
+  .cs-approach b{color:#26202B}
+
+  .cs-split{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start;margin-bottom:48px}
+  .cs-split.reverse{grid-template-columns:300px 1fr}
+  .cs-split.reverse .cs-split-main{order:2}
+  .cs-split.reverse .cs-results-card{order:1}
+  .cs-diagram-block{max-width:600px;margin:0 0 48px 0}
+
+  .cs-results-card{background:#26202B;border-radius:6px;padding:30px;box-shadow:0 14px 34px rgba(38,32,43,0.22);border-top:5px solid #C98A26}
+  .cs-results-card.rust{border-top-color:#C1401E}
+  .cs-results-card.plum{border-top-color:#6E3159}
+  .cs-results-card.sage{border-top-color:#4A5A38}
+  .cs-results-card .cs-results-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:#F0C878;margin:0 0 18px 0}
+  .cs-results-card .rstat{padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid rgba(245,238,223,0.15)}
+  .cs-results-card .rstat:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .cs-results-card .rstat .num{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(25px,2.8vw,32px);color:#F5EEDF;margin:0 0 4px 0;line-height:1.1}
+  .cs-results-card .rstat .label{font-family:'Space Grotesk',sans-serif;font-size:12.5px;color:rgba(245,238,223,0.72);line-height:1.4}
+  .cs-results-card .cs-results-note{font-family:'Space Grotesk',sans-serif;font-size:13px;line-height:1.55;color:rgba(245,238,223,0.85);margin:18px 0 0 0;padding-top:18px;border-top:1px solid rgba(245,238,223,0.15)}
+  .cs-diagram{margin:0;background:#fff;border:1px solid rgba(38,32,43,0.12);border-radius:4px;padding:22px}
+  .cs-diagram svg{width:100%;height:auto;display:block}
+  .cs-diagram-caption{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#4A5A38;margin:14px 0 0 0}
+
+  .vd-wrap{display:flex;flex-direction:column;align-items:center}
+  .vd-wrap p{margin:0}
+  .vd-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#26202B}
+  .vd-sub{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#4A5A38;margin-top:4px}
+  .vd-root{background:#F5EEDF;border:2px solid #26202B;border-radius:4px;padding:18px 26px;text-align:center;width:100%;max-width:320px}
+  .vd-stem{width:2px;height:24px;background:#C98A26}
+  .vd-branches{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;position:relative;padding-top:24px;width:fit-content;margin:0 auto}
+  .vd-branches::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:#C98A26}
+  .vd-branch{position:relative;background:#fff;border:1.5px solid #C98A26;border-radius:4px;padding:16px 20px;text-align:center;width:230px}
+  .vd-branch::before{content:'';position:absolute;top:-24px;left:50%;transform:translateX(-50%);width:2px;height:24px;background:#C98A26}
+
+  .flow-wrap{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px}
+  .flow-wrap p,.flow-grid p{margin:0}
+  .flow-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .flow-step{background:#fff;border:1.5px solid rgba(38,32,43,0.15);border-radius:4px;padding:18px 20px;flex:1 1 140px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:4px}
+  .flow-step.active.rust{background:#C1401E;border-color:#C1401E}
+  .flow-step.active.gold{background:#F0C878;border-color:#C98A26}
+  .flow-step.active.sage{background:#4A5A38;border-color:#4A5A38}
+  .flow-step.active.rust .flow-eyebrow,.flow-step.active.rust .flow-label,.flow-step.active.rust .flow-sub,.flow-step.active.rust .flow-quote{color:#F5EEDF}
+  .flow-step.active.sage .flow-eyebrow,.flow-step.active.sage .flow-label,.flow-step.active.sage .flow-sub,.flow-step.active.sage .flow-quote{color:#F5EEDF}
+  .flow-step.active.gold .flow-eyebrow,.flow-step.active.gold .flow-label,.flow-step.active.gold .flow-sub,.flow-step.active.gold .flow-quote{color:#26202B}
+  .flow-eyebrow{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#4A5A38}
+  .flow-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:#26202B}
+  .flow-quote{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:18px;color:#26202B}
+  .flow-sub{font-family:'Space Grotesk',sans-serif;font-size:12.5px;color:#4A5A38}
+  .flow-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:22px;color:#26202B;padding:0 2px;flex:0 0 auto}
+  .flow-arrow-label{font-family:'Space Grotesk',sans-serif;font-size:10px;color:#4A5A38;margin-bottom:4px;white-space:nowrap}
+
+  .cs-screens{margin:0 0 32px 0;max-width:860px}
+  .cs-screens.wide{max-width:1240px}
+  .cs-screens-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;color:#26202B;margin:0 0 16px 0}
+  .cs-screen-board{display:block;border:1px solid rgba(38,32,43,0.12);border-radius:4px;overflow:hidden;background:#fafafa;text-decoration:none}
+  .cs-screen-board img{width:100%;height:auto;max-height:340px;object-fit:contain;object-position:top;display:block;background:#fafafa}
+  .cs-screen-board .cap{padding:12px 16px;font-family:'Space Grotesk',sans-serif;font-size:13px;color:#4A5A38;border-top:1px solid rgba(38,32,43,0.08)}
+  .cs-screen-board .cap b{color:#26202B}
+  .cs-screen-row{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+  .cs-screen-row:last-child{margin-bottom:0}
+  .cs-screen-row .cs-screen-board{flex:1 1 300px}
+  .cs-screen-row.triple .cs-screen-board{flex:1 1 320px}
+  .cs-screen-row.triple .cs-screen-board img{max-height:420px}
+  .cs-screen-card{flex:1 1 240px;max-width:420px;border:1px solid rgba(38,32,43,0.12);border-radius:4px;overflow:hidden;background:#fff}
+  .cs-screens.wide .cs-screen-card{max-width:none}
+  .cs-screen-row.triple .cs-screen-card{flex:1 1 320px}
+  .cs-screen-card img{width:100%;height:auto;display:block}
+  .cs-screen-card .cap{padding:12px 16px;font-family:'Space Grotesk',sans-serif;font-size:13px;color:#4A5A38;border-top:1px solid rgba(38,32,43,0.08)}
+  @media (max-width:860px){
+    .cs-screen-row{flex-direction:column}
+  }
+
+  .cs-close{color:#F5EEDF}
+  .cs-close-grid{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:start}
+  .cs-close h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);line-height:1.2;margin:0;color:#F5EEDF;max-width:11ch}
+  .cs-close ul{margin:0 0 32px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px;max-width:64ch}
+  .cs-close li{font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.55;color:#F5EEDF}
+  .cs-close b{color:#F0C878}
+  .cs-close p{font-family:'Space Grotesk',sans-serif;font-size:15px;color:rgba(245,238,223,0.75)}
+  .cs-close a{color:#F0C878;text-decoration:underline;text-underline-offset:3px}
+
+  .next-case{padding:72px 0}
+  .next-case-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;color:#4A5A38;margin:0 0 14px 0}
+  .next-case-link{display:inline-flex;align-items:center;gap:14px;text-decoration:none;color:#26202B;font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,44px);letter-spacing:-0.01em;transition:color .2s ease}
+  .next-case-link:hover{color:#C1401E}
+  .next-case-link svg{flex:0 0 auto;transition:transform .25s ease}
+  .next-case-link:hover svg{transform:translateX(8px)}
+
+  @media (max-width:860px){
+    .cs-close-grid{grid-template-columns:1fr;gap:24px}
+    .next-case{padding:48px 0}
+  }
+
+  @media (max-width:860px){
+    .topnav{padding:18px 22px;flex-wrap:wrap;gap:14px}
+    .topnav-links{gap:16px 18px;flex-wrap:wrap}
+    .topnav-link{font-size:15px}
+    .section{padding:0 24px}
+    .cs-band{padding-top:64px;padding-bottom:64px}
+    .cs-split,.cs-split.reverse{grid-template-columns:1fr}
+    .cs-split.reverse .cs-split-main,.cs-split.reverse .cs-results-card{order:initial}
+    .cs-diagram{padding:18px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <a class="brand" href="index.html">
+    <svg width="26" height="26" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#C1401E">
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(72 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(144 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(216 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(288 20 20)"/>
+      </g>
+      <circle cx="20" cy="20" r="4.5" fill="#F5EEDF"/>
+    </svg>
+    <span>Jessica Nunez</span>
+  </a>
+  <nav class="topnav-links">
+    <a class="topnav-link" href="index.html">Home</a>
+    <a class="topnav-link active" href="portfolio.html">Portfolio</a>
+    <a class="topnav-link" href="https://linkedin.com/in/jessicacnunez" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="topnav-link" href="resume.html">Resume</a>
+  </nav>
+</header>
+
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <h1>This case study is locked</h1>
+    <p>Enter the portfolio password to continue.</p>
+    <form class="gate-form" id="gate-form" autocomplete="off">
+      <input class="gate-input" type="password" id="gate-password" name="password" placeholder="Password" autocomplete="off">
+      <button class="gate-submit" type="submit">Enter</button>
+    </form>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+</div>
+
+<div id="cs-content" class="hidden">
+
+  <div class="section" style="padding-top:48px">
+    <a class="back-link" href="portfolio.html">&larr; Back to portfolio</a>
+  </div>
+
+  <div class="section" style="padding-top:20px;padding-bottom:56px">
+    <p class="cs-role" data-key="role">Content Design Lead, Core Ads · 2020 - 2026</p>
+    <div class="cs-title-row">
+      <img src="assets/meta-icon.png" alt="" class="cs-meta-icon">
+      <h1 class="cs-title" data-key="company">Meta</h1>
+    </div>
+    <p class="cs-subtitle" data-key="title">Turning advertiser intent into revenue</p>
+    <p class="cs-lede" data-key="lede">I led content design for the products that capture an advertiser's goals and turn them into business outcomes like website purchases, lead generation and brand awareness. These products include bidding, budget, audience targeting, optimization and attribution. In this world, a confusing label has a direct impact on revenue and advertiser trust. <br><br>These four projects highlight some of my work end to end:</p>
+  </div>
+
+  <!-- 01 VALUE TAXONOMY -->
+  <div style="background:#FAF6EC">
+    <div class="section cs-band">
+      <div class="cs-section" id="value">
+        <h2 data-key="value-h2">Building a taxonomy to unblock 7+ new products</h2>
+        <div class="cs-theme-tags"><span class="cs-theme-tag" data-key="value-tag1">Naming systems</span><span class="sep">·</span><span class="cs-theme-tag" data-key="value-tag2">Shared vocabulary</span><span class="sep">·</span><span class="cs-theme-tag" data-key="value-tag3">Cross-org alignment</span></div>
+        <p class="my-role"><span class="cs-role-tag">My role</span><span data-key="value-role">Content lead spanning both orgs</span></p>
+
+        <div class="cs-split">
+          <div class="cs-split-main">
+            <p class="cs-stage">Problem space</p>
+            <p class="cs-problem lead" data-key="value-problem">Different product teams had their own definitions for the value of a <span class="term" tabindex="0">conversion<span class="term-tip">An action a user takes after seeing an ad. For example, buying something on a website or completing a registration form.</span></span>. Meanwhile, these teams were introducing new ad delivery models to optimize for higher:</p>
+            <ul class="cs-problem-list" data-key="value-problem-list">
+              <li>Purchase value of a product</li>
+              <li>Profit margin of a product</li>
+              <li>Predicted lifetime value of a user</li>
+            </ul>
+            <p class="cs-problem" data-key="value-problem-risk"><b>Risk:</b> Advertisers comparing features side by side would see conflicting language for the same underlying concept.</p>
+            <p class="cs-problem" data-key="value-problem-challenge"><b>Content challenge:</b> Build a shared vocabulary loose enough for teams to build independently, but strict enough to stay coherent at scale.</p>
+
+            <p class="cs-stage">My approach</p>
+            <ul class="cs-approach" data-key="value-approach">
+              <li><b>Mapped the system before writing.&nbsp;</b>I mapped every state of the flow so terminology decisions were grounded in real world needs.</li>
+              <li><b>Built the shared Value taxonomy.</b> Created internal categories (Value Expression, Absolute Value, Relative Value) that became the common language for engineering, product, and design across 5 teams.</li>
+              <li><b>Named 7+ products with research.</b> Developed end-to-end terminology for 6 new value products, stress-testing names across surfaces, running experiments, and coordinating legal and stakeholder reviews.</li>
+              <li><b>Wrote the rules, not just the names.</b> Documented when each term applied and why, so other teams could extend the system correctly without me in the room.</li>
+            </ul>
+          </div>
+          <aside class="cs-results-card">
+            <p class="cs-results-label">Results</p>
+            <div class="rstat"><p class="num" data-key="value-stat1-num">5.9%&nbsp;→&nbsp;10.2%</p><p class="label" data-key="value-stat1-label">Value portfolio share of Meta total revenue</p></div>
+            <div class="rstat"><p class="num" data-key="value-stat2-num">96%</p><p class="label" data-key="value-stat2-label">Of new revenue directly enabled by UI changes</p></div>
+            <div class="rstat"><p class="num" data-key="value-stat3-num">3 months</p><p class="label" data-key="value-stat3-label">Saved from unified naming, architecture, and design</p></div>
+            <p class="cs-results-note" data-key="value-note">The internal taxonomy became the shared language for Engineering, Product and Design across 5+ teams.</p>
+          </aside>
+        </div>
+
+        <div class="cs-diagram-block">
+          <p class="cs-stage" data-key="value-diagram-title">Value product categories</p>
+          <div class="cs-diagram">
+            <div class="vd-wrap">
+              <div class="vd-root">
+                <p class="vd-label" data-key="value-diagram-root-label">Value Expression</p>
+                <p class="vd-sub" data-key="value-diagram-root-sub">The monetary worth of a conversion</p>
+              </div>
+              <div class="vd-stem"></div>
+              <div class="vd-branches">
+                <div class="vd-branch">
+                  <p class="vd-label" data-key="value-diagram-branch1-label">Absolute Value</p>
+                  <p class="vd-sub" data-key="value-diagram-branch1-sub">Purchase value · Profit margin · Predicted lifetime value</p>
+                </div>
+                <div class="vd-branch">
+                  <p class="vd-label" data-key="value-diagram-branch2-label">Relative Value</p>
+                  <p class="vd-sub" data-key="value-diagram-branch2-sub">Value versus a goal or benchmark (value rules)</p>
+                </div>
+              </div>
+            </div>
+            <p class="cs-diagram-caption" data-key="value-diagram-caption">I interviewed senior engineers, product managers and leadership to understand how the products work and how they relate to each other. This categorization enabled better internal communication and helped me name 7+ products.</p>
+          </div>
+        </div>
+
+        <div class="cs-screens wide">
+          <p class="cs-screens-label" data-key="value-screens-label">Figma Design Files</p>
+          <div class="cs-screen-row triple">
+            <a class="cs-screen-board" href="assets/case-study-meta/value-conversion-value-purchase.png" target="_blank" rel="noopener">
+              <img src="assets/case-study-meta/value-conversion-value-purchase.png" alt="Conversion value dropdown showing Purchase value, Profit, and pLTV options">
+              <p class="cap" data-key="value-cap1">Choosing between <b>Purchase value</b>, <b>Profit</b>, or <b>predicted lifetime value</b>. <b>Click to open full resolution.</b></p>
+            </a>
+            <a class="cs-screen-board" href="assets/case-study-meta/value-flow-map.png" target="_blank" rel="noopener">
+              <img src="assets/case-study-meta/value-flow-map.png" alt="Full state map of the conversion-value flow across current and proposed paths">
+              <p class="cap" data-key="value-cap3">The full state map, at a glance. <b>Click to open full resolution.</b></p>
+            </a>
+            <a class="cs-screen-board" href="assets/case-study-meta/value-roas-guidance.png" target="_blank" rel="noopener">
+              <img src="assets/case-study-meta/value-roas-guidance.png" alt="Diagram showing when and why the ROAS goal field disables across three bid-strategy scenarios">
+              <p class="cap" data-key="value-cap4">One edge case worked through: when the ROAS goal field disables. <b>Click to open full resolution.</b></p>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 ATTRIBUTION -->
+  <div style="background:#F5E2D8">
+    <div class="section cs-band">
+      <div class="cs-section attribution" id="attribution">
+        <h2 data-key="attribution-h2">Designing one experience for two audiences</h2>
+        <div class="cs-theme-tags rust"><span class="cs-theme-tag" data-key="attribution-tag1">Content strategy</span><span class="sep">·</span><span class="cs-theme-tag" data-key="attribution-tag2">Progressive disclosure</span><span class="sep">·</span><span class="cs-theme-tag" data-key="attribution-tag3">Revenue impact</span></div>
+        <p class="my-role"><span class="cs-role-tag">My role</span><span data-key="attribution-role">Design and content lead</span></p>
+
+        <div class="cs-split reverse">
+          <aside class="cs-results-card rust">
+            <p class="cs-results-label">Results</p>
+            <div class="rstat"><p class="num" data-key="attribution-stat1-num">$5B+</p><p class="label" data-key="attribution-stat1-label">Annual recurring revenue across two new attribution products</p></div>
+            <div class="rstat"><p class="num" data-key="attribution-stat2-num">5.7%</p><p class="label" data-key="attribution-stat2-label">Incremental revenue (iRev) projected by 2027</p></div>
+            <p class="cs-results-note" data-key="attribution-note">The conversion card architecture workshop unblocked a roadmap that had been stalled across two orgs.</p>
+          </aside>
+          <div class="cs-split-main">
+            <p class="cs-stage">Problem space</p>
+            <p class="cs-problem lead" data-key="attribution-problem">Meta introduced two new advanced <span class="term" tabindex="0">attribution<span class="term-tip">How credit is given to an ad for a conversion. For example, if someone clicks your ad and buys a product two days later, attribution connects that purchase to the ad.</span></span> products at the same time:</p>
+            <ul class="cs-problem-list" data-key="attribution-problem-list">
+              <li><b>Incremental attribution:</b>&nbsp;optimize for sales directly attributable to Meta ads.</li>
+              <li><b>Custom attribution:</b>&nbsp;configure and share your own attribution rules.</li>
+            </ul>
+            <p class="cs-problem" data-key="attribution-problem-risk"><b>Risk:</b> If advertisers choose the wrong product, the system optimizes and spends money toward the wrong outcome.</p>
+            <p class="cs-problem" data-key="attribution-problem-challenge"><b>Content challenge:</b> The new products matter to advanced advertisers who want precision, but surfacing them by default would confuse or derail the majority who don't need this level of control. How do we serve both segments in one flow?</p>
+
+            <p class="cs-stage">My approach</p>
+            <ul class="cs-approach" data-key="attribution-approach">
+              <li><b>Wrote for two audiences in one surface.</b> Advanced advertisers needed the attribution setting, everyone else needed to not notice it was there. A progressive disclosure pattern served both groups with one interface.</li>
+              <li><b>Translated a technical mechanism into a plain language decision.</b> Attribution is a complex concept. An inline tooltip helps someone make an informed choice in the moment.</li>
+              <li><b>Calibrated tone for a high-stakes moment.</b> The decision was high stakes, but the copy needed to feel confident and low-friction.</li>
+              <li><b>Built a reusable content pattern.</b> The progressive disclosure structure became the template other products used for their own advanced settings.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cs-diagram-block">
+          <p class="cs-stage" data-key="attribution-diagram-title">Progressive disclosure and defaulting strategy</p>
+          <div class="cs-diagram">
+            <div class="flow-wrap">
+              <div class="flow-step">
+                <p class="flow-eyebrow" data-key="attribution-flow1-eyebrow">1 · Default</p>
+                <p class="flow-label" data-key="attribution-flow1-label">Advanced settings collapsed</p>
+                <p class="flow-sub" data-key="attribution-flow1-sub">"Show more settings"</p>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <p class="flow-eyebrow" data-key="attribution-flow2-eyebrow">2 · Expanded</p>
+                <p class="flow-label" data-key="attribution-flow2-label">Attribution settings revealed</p>
+                <p class="flow-sub" data-key="attribution-flow2-sub">For advertisers who need it</p>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step active rust">
+                <p class="flow-eyebrow" data-key="attribution-flow3-eyebrow">&nbsp;new concept</p>
+                <p class="flow-label" data-key="attribution-flow3-label">Attribution model</p>
+                <p class="flow-sub" data-key="attribution-flow3-sub">Tooltip explains the tradeoff</p>
+              </div>
+            </div>
+            <p class="cs-diagram-caption" data-key="attribution-diagram-caption">Two states: default and expanded. We introduced "Attribution model" as a new product decision and added definitions that clearly explain the product and the tradeoffs.&nbsp;</p>
+          </div>
+        </div>
+
+        <div class="cs-screens wide">
+          <p class="cs-screens-label" data-key="attribution-screens-label">What we shipped</p>
+          <div class="cs-screen-row triple">
+            <div class="cs-screen-card">
+              <img src="assets/case-study-meta/attribution-state-1-default.png" alt="Conversion card in its default state, with a Show more settings link and no attribution field visible">
+              <p class="cap" data-key="attribution-cap1"><b>1 · Default.</b> Attribution settings stay out of sight behind "Show more settings."</p>
+            </div>
+            <div class="cs-screen-card">
+              <img src="assets/case-study-meta/attribution-state-2-expanded.png" alt="Conversion card expanded to show the attribution model field and an engage-through attribution note">
+              <p class="cap" data-key="attribution-cap2"><b>2 · Expanded.</b>&nbsp;Attribution settings are exposed and can be edited, with clear explanations.</p>
+            </div>
+            <div class="cs-screen-card">
+              <img src="assets/case-study-meta/attribution-state-3-decision.png" alt="Attribution model field with an inline tooltip explaining what it controls, next to the Standard and Incremental options">
+              <p class="cap" data-key="attribution-cap3"><b>Attribution model.</b> An inline tooltip explains what feature is and the descriptions make the tradeoffs clear.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 KPI EXPRESSION -->
+  <div style="background:#EFE3EA">
+    <div class="section cs-band">
+      <div class="cs-section kpi" id="kpi">
+        <h2 data-key="kpi-h2">Refactoring terminology to put the user first</h2>
+        <div class="cs-theme-tags plum"><span class="cs-theme-tag" data-key="kpi-tag1">Content standards</span><span class="sep">·</span><span class="cs-theme-tag" data-key="kpi-tag2">Interaction design</span><span class="sep">·</span><span class="cs-theme-tag" data-key="kpi-tag3">Cross-org alignment</span></div>
+        <p class="my-role"><span class="cs-role-tag">My role</span><span data-key="kpi-role">Co-design lead spanning five teams</span></p>
+
+            <div class="cs-split">
+              <div class="cs-split-main">
+                <p class="cs-stage">Problem space</p>
+                <p class="cs-problem lead" data-key="kpi-problem">Meta's ad creation flow was a collection of knobs and switches, asking advertisers to configure settings that felt disconnected from their actual marketing goals. Things like:</p>
+                <ul class="cs-problem-list" data-key="kpi-problem-list">
+                  <li>Bid strategy</li>
+                  <li>Optimization goal</li>
+                  <li>Pixel</li>
+                  <li>Conversion event</li>
+                </ul>
+                <p class="cs-problem" data-key="kpi-problem-risk"><b>Risk:</b> Without understanding how each input affected the others, advertisers defaulted to lower value optimization choices, leaving results on the table.</p>
+                <p class="cs-problem" data-key="kpi-problem-challenge"><b>Content challenge:</b> Establish goal-centric terminology that puts the focus on the advertiser, not Meta's ad system.</p>
+
+                <p class="cs-stage">My approach</p>
+                <ul class="cs-approach" data-key="kpi-approach">
+                  <li><b>Co-designed the MVP.</b> Facilitated north star brainstorms with product and engineering to align on hypotheses for how advertisers should express optimization goals, then translated the debate into a testable MVP.</li>
+                  <li><b>Established "performance goals" as a new input, then set content standards.</b> Defined rules for new performance goals, like that the name should match the reporting metric so advertisers always know how to measure the goal they chose.</li>
+                  <li><b>Mapped the ad creation flow end-to-end.</b> Diagrammed the website and app conversion journeys step-by-step, surfacing every place a goal's name, description and metrics needed to stay in sync.</li>
+                  <li><b>Drove cross-functional alignment and launch.</b> Ran usability testing, maintained Figma files across five teams, and secured internal approval to take the KPI Expression MVP from concept to global launch.</li>
+                </ul>
+              </div>
+              <aside class="cs-results-card plum">
+                <p class="cs-results-label">Results</p>
+                <div class="rstat"><p class="num" data-key="kpi-stat1-num">100%</p><p class="label" data-key="kpi-stat1-label">GA launch across all global advertisers</p></div>
+                <div class="rstat"><p class="num" data-key="kpi-stat2-num">0 → MVP</p><p class="label" data-key="kpi-stat2-label">Multi-year strategic foundation for Goal Expression</p></div>
+                <p class="cs-results-note" data-key="kpi-note">The naming standard became the foundation for Goal Expression, a multi-year strategic thread carried across Meta's Automation and Value portfolios.</p>
+              </aside>
+            </div>
+
+            <div class="cs-diagram-block">
+              <p class="cs-stage" data-key="kpi-diagram-title">Consistent terminology, end to end</p>
+              <div class="cs-diagram">
+                <div class="flow-wrap">
+                  <div class="flow-step">
+                    <p class="flow-eyebrow" data-key="kpi-flow1-eyebrow">1 · Choosing the goal</p>
+                    <p class="flow-quote" data-key="kpi-flow1-quote">"Maximize daily unique reach"</p>
+                    <p class="flow-sub" data-key="kpi-flow1-sub">Chosen during ad setup</p>
+                  </div>
+                  <div class="flow-arrow"><span class="flow-arrow-label">same name</span>→</div>
+                  <div class="flow-step active gold">
+                    <p class="flow-eyebrow" data-key="kpi-flow2-eyebrow">2 · Measuring results</p>
+                    <p class="flow-quote" data-key="kpi-flow2-quote">"Reach"</p>
+                    <p class="flow-sub" data-key="kpi-flow2-sub">Shown in the reporting table</p>
+                  </div>
+                </div>
+                <p class="cs-diagram-caption" data-key="kpi-diagram-caption">One key principle we followed for years to come: The performance goal name should always match the corresponding metric name.</p>
+              </div>
+            </div>
+
+            <p class="cs-stage" data-key="kpi-screens-title">Goal names that persist end to end</p>
+            <div class="cs-screens wide">
+              <p class="cs-screens-label" data-key="kpi-screens-label">Figma Design files</p>
+              <div class="cs-screen-row" style="margin-bottom:16px">
+                <div class="cs-screen-card">
+                  <img src="assets/case-study-meta/kpi-performance-goal-dropdown.png" alt="Performance goal dropdown showing Maximize daily unique reach among other goal options">
+                  <p class="cap" data-key="kpi-cap1"><b>"Maximize daily unique reach"</b> is performance goal option.</p>
+                </div>
+                <div class="cs-screen-card">
+                  <img src="assets/case-study-meta/kpi-reporting-columns.png" alt="Customize columns modal with Reach and Impressions available as reporting columns">
+                  <p class="cap" data-key="kpi-cap2"><b>"Reach" </b>is the metric the advertiser chooses in the reporting table to track results.</p>
+                </div>
+              </div>
+              <a class="cs-screen-board" href="assets/case-study-meta/kpi-website-workflow.png" target="_blank" rel="noopener">
+                <img src="assets/case-study-meta/kpi-website-workflow.png" alt="Before and after diagram of the website conversion journey through the ad creation flow">
+                <p class="cap" data-key="kpi-cap3">The website conversion journey, before and after.&nbsp;<b>Click to open full resolution.</b></p>
+              </a>
+            </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 META ACCOUNT -->
+  <div style="background:#EAEEE3">
+    <div class="section cs-band">
+      <div class="cs-section account" id="account">
+        <h2 data-key="account-h2">Engineering an AI-driven content process at scale</h2>
+        <div class="cs-theme-tags sage"><span class="cs-theme-tag" data-key="account-tag1">AI workflow design</span><span class="sep">·</span><span class="cs-theme-tag" data-key="account-tag2">Content operations</span><span class="sep">·</span><span class="cs-theme-tag" data-key="account-tag3">Enterprise scale</span></div>
+        <p class="my-role"><span class="cs-role-tag">My role</span><span data-key="account-role">Monetization lead</span></p>
+
+        <div class="cs-split">
+          <div class="cs-split-main">
+            <p class="cs-stage">Problem space</p>
+            <p class="cs-problem lead" data-key="account-problem">In 2025, Meta undertook its largest-ever account system change, replacing every in-product reference to "Facebook account," "Instagram account," and "Threads account" with unified "Meta Account" terminology across 4B+ users, spanning:</p>
+            <ul class="cs-problem-list" data-key="account-problem-list">
+              <li>In-product UI strings</li>
+              <li>Legal and policy language</li>
+              <li>Help Center documentation</li>
+            </ul>
+            <p class="cs-problem" data-key="account-problem-risk"><b>Risk:</b> 12,500+ strings needed updating across 9 orgs on an aggressive company-wide launch timeline.</p>
+            <p class="cs-problem" data-key="account-problem-challenge"><b>Content challenge:</b> Design a workflow that could audit, prioritize, and correct thousands of strings accurately, at a pace no manual process could match.</p>
+
+            <p class="cs-stage">My approach</p>
+            <ul class="cs-approach" data-key="account-approach">
+              <li><b>Coordinated 30+ content designers.</b> Built and ran the project plan across 9 orgs, keeping every team aligned on scope and a company-wide launch timeline.</li>
+              <li><b>Resolved a contested legal decision.</b> Unblocked a disputed legal call that would have forced rework across multiple orgs.</li>
+              <li><b>Used AI to locate strings for decision-making.</b> Applied AI to surface the highest-priority strings to review first, instead of auditing 12,500+ by hand.</li>
+              <li><b>Automated additions to the string management tool.</b> Built automation that saved roughly 50 hours of manual string-management work.</li>
+            </ul>
+          </div>
+          <aside class="cs-results-card sage">
+            <p class="cs-results-label">Results</p>
+            <div class="rstat"><p class="num" data-key="account-stat1-num">97–98%</p><p class="label" data-key="account-stat1-label">Completion of highest-priority strings ahead of launch</p></div>
+            <div class="rstat"><p class="num" data-key="account-stat2-num">10–12</p><p class="label" data-key="account-stat2-label">Automated diffs reviewed per day, sustaining accuracy past launch</p></div>
+            <p class="cs-results-note" data-key="account-note">The manual audit became an AI-driven workflow that saved roughly 50 hours and became the model other audit teams across Meta used for their own launches.</p>
+          </aside>
+        </div>
+
+        <div class="cs-diagram-block">
+          <p class="cs-stage" data-key="account-diagram-title">How the workflow scaled</p>
+          <div class="cs-diagram">
+            <div class="flow-grid">
+              <div class="flow-step">
+                <p class="flow-eyebrow" data-key="account-flow1-eyebrow">1 · Manual audit</p>
+                <p class="flow-sub" data-key="account-flow1-sub">Infeasible at 12,500+ strings</p>
+              </div>
+              <div class="flow-step">
+                <p class="flow-eyebrow" data-key="account-flow2-eyebrow">2 · AI-powered detection</p>
+                <p class="flow-sub" data-key="account-flow2-sub">Surfaces what to fix</p>
+              </div>
+              <div class="flow-step">
+                <p class="flow-eyebrow" data-key="account-flow3-eyebrow">3 · Automated diffs</p>
+                <p class="flow-sub" data-key="account-flow3-sub">10–12 reviewed per day</p>
+              </div>
+              <div class="flow-step active sage">
+                <p class="flow-eyebrow" data-key="account-flow4-eyebrow">4 · Company-wide adoption</p>
+                <p class="flow-sub" data-key="account-flow4-sub">Model for other teams</p>
+              </div>
+            </div>
+            <p class="cs-diagram-caption" data-key="account-diagram-caption">How the workflow scaled from a manual bottleneck to a repeatable, AI-assisted process.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div style="background:#6E3159">
+    <div class="section cs-band cs-close">
+      <div class="cs-close-grid">
+        <h2>What these four have in common</h2>
+        <div>
+          <ul data-key="closing-list">
+            <li><b>Revenue-connected writing.</b> Every label here had a direct line to money, trust, or both.</li>
+            <li><b>Content systems, not just screens.</b> I build taxonomies and naming standards that let many teams move independently and stay consistent.</li>
+            <li><b>Progressive disclosure as a default.</b> Say less, more precisely, and reveal complexity only when someone needs it.</li>
+            <li><b>Plain language for technical and financial logic.</b> Turning complex mechanisms into something a non-expert can act on with confidence.</li>
+          </ul>
+          <p data-key="closing-note">Want the Figma files or a deeper walkthrough of any of these? <a href="mailto:jessicacnunez@gmail.com">Email me</a>&nbsp; and I'm happy to share.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#F5EEDF">
+    <div class="section next-case">
+      <p class="next-case-label">Next case study</p>
+      <a class="next-case-link" href="case-study-bcbsm.html">Blue Cross Blue Shield of Michigan
+        <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer style="padding:28px 72px 48px;font-family:'Space Grotesk',sans-serif;font-size:12px;color:#4A5A38">© 2026 Jessica Nunez</footer>
+
+<script>
+(function () {
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.scrollTo(0, 0);
+
+  var PASSWORD = "userfirst";
+  var gate = document.getElementById('gate');
+  var content = document.getElementById('cs-content');
+  var form = document.getElementById('gate-form');
+  var input = document.getElementById('gate-password');
+  var error = document.getElementById('gate-error');
+
+  function unlock() {
+    gate.classList.add('hidden');
+    content.classList.remove('hidden');
+    window.scrollTo(0, 0);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { window.scrollTo(0, 0); });
+    });
+  }
+
+  try {
+    if (sessionStorage.getItem('portfolio-unlocked') === '1') unlock();
+  } catch (e) {}
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (input.value === PASSWORD) {
+      try { sessionStorage.setItem('portfolio-unlocked', '1'); } catch (e) {}
+      error.textContent = '';
+      unlock();
+    } else {
+      error.textContent = 'Incorrect password.';
+      input.value = '';
+      input.focus();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

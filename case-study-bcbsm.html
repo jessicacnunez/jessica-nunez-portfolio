@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blue Cross Blue Shield of Michigan — Case Study — Jessica Nunez</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#F5EEDF;overflow-anchor:none}
+  a{color:#26202B}
+  a:hover{color:#C1401E}
+
+  .topnav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 72px;background:rgba(245,238,223,0.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(38,32,43,0.12)}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand span{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:19px;color:#26202B}
+  .topnav-links{display:flex;gap:34px}
+  .topnav-link{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:17px;color:#26202B;text-decoration:none;display:inline-block;width:fit-content;border-bottom:1px solid transparent;padding-bottom:3px;transition:color .15s ease,border-color .15s ease}
+  .topnav-link:hover,.topnav-link.active{color:#C1401E;border-bottom-color:#C1401E}
+  .section{padding:0 72px;max-width:1400px;margin:0 auto}
+
+  .gate{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:40px 24px}
+  .gate-card{max-width:380px;width:100%;text-align:center}
+  .gate-card h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,40px);margin:0 0 14px 0;color:#26202B}
+  .gate-card p{font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.5;color:#4A5A38;margin:0 0 28px 0}
+  .gate-form{display:flex;flex-direction:column;gap:12px}
+  .gate-input{font-family:'Space Grotesk',sans-serif;font-size:16px;padding:13px 16px;border:1px solid rgba(38,32,43,0.3);background:#fff;color:#26202B;border-radius:2px}
+  .gate-input:focus{outline:2px solid #C1401E;outline-offset:1px}
+  .gate-submit{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;padding:13px 16px;background:#26202B;color:#F5EEDF;border:none;cursor:pointer;transition:background .15s ease;border-radius:2px}
+  .gate-submit:hover{background:#C1401E}
+  .gate-error{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#C1401E;min-height:18px;margin-top:2px}
+  .hidden{display:none}
+
+  .back-link{font-family:'Space Grotesk',sans-serif;font-size:14px;color:#4A5A38;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .back-link:hover{color:#C1401E}
+
+  .cs-role{font-family:'Space Grotesk',sans-serif;font-size:14px;color:#4A5A38;margin:0 0 6px 0}
+  .cs-role strong{color:#26202B;font-weight:500}
+  .cs-title-row{display:flex;align-items:center;gap:18px;margin:0 0 10px 0}
+  .cs-bcbsm-icon{height:clamp(42px,6.6vw,80px);width:auto;display:block;flex:0 0 auto}
+  h1.cs-title{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(52px,8vw,96px);line-height:0.98;margin:0;letter-spacing:-0.02em;color:#26202B}
+  .cs-subtitle{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(22px,2.8vw,32px);line-height:1.25;color:#26202B;margin:0 0 24px 0;max-width:36ch}
+  .cs-lede{font-family:'Space Grotesk',sans-serif;font-size:18px;line-height:1.6;max-width:70ch;color:#26202B;margin:0}
+
+  .cs-band{padding-top:96px;padding-bottom:96px}
+
+  .cs-theme-tags{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;color:#C98A26;margin:0 0 16px 0}
+  .cs-theme-tags.rust{color:#C1401E}
+  .cs-theme-tags.plum{color:#6E3159}
+  .cs-theme-tags.sage{color:#4A5A38}
+  .cs-theme-tags .sep{color:#26202B;opacity:0.35;margin:0 8px}
+  .my-role{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;line-height:1.4;color:#26202B;margin:0 0 32px 0}
+  .cs-role-tag{display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#F5EEDF;background:#26202B;padding:4px 10px;border-radius:3px;flex:0 0 auto}
+
+  .cs-section h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,3.6vw,42px);margin:0 0 20px 0;max-width:20ch;color:#26202B}
+  .cs-outcome{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(18px,2vw,22px);line-height:1.5;color:#26202B;margin:0 0 28px 0;max-width:62ch}
+  .cs-problem{font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.6;max-width:66ch;color:#26202B;margin:0 0 16px 0}
+  .cs-problem.lead{margin-bottom:10px}
+  .cs-problem-list{margin:0 0 16px 0;padding-left:20px;font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.6;color:#26202B;max-width:64ch}
+  .cs-problem-list li{margin-bottom:2px}
+  .cs-problem[data-key$="-problem-challenge"]{margin-bottom:28px}
+
+  .cs-stage{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(20px,2.2vw,25px);letter-spacing:-0.01em;color:#26202B;margin:0 0 16px 0}
+  .cs-approach{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:66ch}
+  .cs-approach li{font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.55;color:#26202B}
+  .cs-approach b{color:#26202B}
+
+  .cs-split{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start;margin-bottom:40px}
+  .cs-split.reverse{grid-template-columns:300px 1fr}
+  .cs-split.reverse .cs-split-main{order:2}
+  .cs-split.reverse .cs-results-card{order:1}
+
+  .cs-results-card{background:#26202B;border-radius:6px;padding:30px;box-shadow:0 14px 34px rgba(38,32,43,0.22);border-top:5px solid #C98A26}
+  .cs-results-card.rust{border-top-color:#C1401E}
+  .cs-results-card.plum{border-top-color:#6E3159}
+  .cs-results-card.sage{border-top-color:#4A5A38}
+  .cs-results-card .cs-results-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:#F0C878;margin:0 0 18px 0}
+  .cs-results-card .rstat{padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid rgba(245,238,223,0.15)}
+  .cs-results-card .rstat:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .cs-results-card .rstat .num{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(25px,2.8vw,32px);color:#F5EEDF;margin:0 0 4px 0;line-height:1.1}
+  .cs-results-card .rstat .label{font-family:'Space Grotesk',sans-serif;font-size:12.5px;color:rgba(245,238,223,0.72);line-height:1.4}
+  .cs-results-card .cs-results-note{font-family:'Space Grotesk',sans-serif;font-size:13px;line-height:1.55;color:rgba(245,238,223,0.85);margin:18px 0 0 0;padding-top:18px;border-top:1px solid rgba(245,238,223,0.15)}
+
+  .cs-screens{margin:0 0 32px 0;max-width:860px}
+  .cs-screens-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;color:#26202B;margin:0 0 16px 0}
+  .cs-screen-board{display:block;margin-bottom:16px;border:1px solid rgba(38,32,43,0.12);border-radius:4px;overflow:hidden;background:#fafafa;text-decoration:none}
+  .cs-screen-board img{width:100%;height:auto;max-height:480px;object-fit:contain;object-position:top;display:block;background:#fafafa}
+  .cs-screen-board .cap{padding:12px 16px;font-family:'Space Grotesk',sans-serif;font-size:13px;color:#4A5A38;border-top:1px solid rgba(38,32,43,0.08)}
+  .cs-screen-board .cap b{color:#26202B}
+  .cs-screen-row{display:flex;gap:20px;flex-wrap:wrap}
+  .cs-screen-card{flex:1 1 240px;border:1px solid rgba(38,32,43,0.12);border-radius:4px;overflow:hidden;background:#fff}
+  .cs-screen-card img{width:100%;height:auto;display:block}
+  .cs-screen-card .cap{padding:12px 16px;font-family:'Space Grotesk',sans-serif;font-size:13px;color:#4A5A38;border-top:1px solid rgba(38,32,43,0.08)}
+
+  .cs-close{color:#F5EEDF}
+  .cs-close-grid{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:start}
+  .cs-close h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,3.2vw,40px);line-height:1.2;margin:0;color:#F5EEDF;max-width:11ch}
+  .cs-close ul{margin:0 0 32px 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px;max-width:64ch}
+  .cs-close li{font-family:'Space Grotesk',sans-serif;font-size:17px;line-height:1.55;color:#F5EEDF}
+  .cs-close b{color:#F0C878}
+  .cs-close p{font-family:'Space Grotesk',sans-serif;font-size:15px;color:rgba(245,238,223,0.75)}
+  .cs-close a{color:#F0C878;text-decoration:underline;text-underline-offset:3px}
+
+  .next-case{padding:72px 0}
+  .next-case-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;color:#4A5A38;margin:0 0 14px 0}
+  .next-case-link{display:inline-flex;align-items:center;gap:14px;text-decoration:none;color:#26202B;font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,44px);letter-spacing:-0.01em;transition:color .2s ease}
+  .next-case-link:hover{color:#C1401E}
+  .next-case-link svg{flex:0 0 auto;transition:transform .25s ease}
+  .next-case-link:hover svg{transform:translateX(8px)}
+
+  @media (max-width:860px){
+    .topnav{padding:18px 22px;flex-wrap:wrap;gap:14px}
+    .topnav-links{gap:16px 18px;flex-wrap:wrap}
+    .topnav-link{font-size:15px}
+    .section{padding:0 24px}
+    .cs-band{padding-top:64px;padding-bottom:64px}
+    .cs-split,.cs-split.reverse{grid-template-columns:1fr}
+    .cs-split.reverse .cs-split-main,.cs-split.reverse .cs-results-card{order:initial}
+    .cs-close-grid{grid-template-columns:1fr;gap:24px}
+    .next-case{padding:48px 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <a class="brand" href="index.html">
+    <svg width="26" height="26" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#C1401E">
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(72 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(144 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(216 20 20)"/>
+        <ellipse cx="20" cy="9" rx="6.5" ry="10.5" transform="rotate(288 20 20)"/>
+      </g>
+      <circle cx="20" cy="20" r="4.5" fill="#F5EEDF"/>
+    </svg>
+    <span>Jessica Nunez</span>
+  </a>
+  <nav class="topnav-links">
+    <a class="topnav-link" href="index.html">Home</a>
+    <a class="topnav-link active" href="portfolio.html">Portfolio</a>
+    <a class="topnav-link" href="https://linkedin.com/in/jessicacnunez" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="topnav-link" href="resume.html">Resume</a>
+  </nav>
+</header>
+
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <h1>This case study is locked</h1>
+    <p>Enter the portfolio password to continue.</p>
+    <form class="gate-form" id="gate-form" autocomplete="off">
+      <input class="gate-input" type="password" id="gate-password" name="password" placeholder="Password" autocomplete="off">
+      <button class="gate-submit" type="submit">Enter</button>
+    </form>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+</div>
+
+<div id="cs-content" class="hidden">
+
+  <div class="section" style="padding-top:48px">
+    <a class="back-link" href="portfolio.html">&larr; Back to portfolio</a>
+  </div>
+
+  <div class="section" style="padding-top:20px;padding-bottom:56px">
+    <p class="cs-role" data-key="role">Product Owner &amp; Digital Strategy Manager · 2013–2020</p>
+    <div class="cs-title-row">
+      <img src="assets/bcbsm-icon.png" alt="" class="cs-bcbsm-icon">
+      <h1 class="cs-title" data-key="company">BCBSM</h1>
+    </div>
+    <p class="cs-subtitle" data-key="title">Helping consumers compare, choose and use their health insurance plans</p>
+    <p class="cs-lede" data-key="lede">I owned product and digital strategy for bcbsm.com, the public website for Blue Cross Blue Shield of Michigan. I led a team that translated dense health benefit information into content that helped people feel confident when choosing their health insurance plan. <br><br>These three projects show that work at different scales:</p>
+  </div>
+
+  <!-- 01 AUTOMATION -->
+  <div style="background:#EFE3EA">
+    <div class="section cs-band">
+      <div class="cs-section automation" id="automation">
+        <h2 data-key="automation-h2">One content source for 60+ health plan pages</h2>
+        <div class="cs-theme-tags plum"><span class="cs-theme-tag" data-key="automation-tag1">Content systems</span><span class="sep">·</span><span class="cs-theme-tag" data-key="automation-tag2">Content operations</span><span class="sep">·</span><span class="cs-theme-tag" data-key="automation-tag3">Cross-functional tooling</span></div>
+        <p class="my-role"><span class="cs-role-tag">My role</span><span data-key="automation-role">Product Owner</span></p>
+
+        <div class="cs-split">
+          <div class="cs-split-main">
+            <p class="cs-stage">Problem space</p>
+            <p class="cs-problem lead" data-key="automation-problem">Every one of bcbsm.com's 60+ individual health plans had its own detail page, built from more than 70 separate benefit elements entered by hand, plan by plan, including:</p>
+            <ul class="cs-problem-list" data-key="automation-problem-list">
+              <li>Deductibles and coinsurance</li>
+              <li>Coverage tiers</li>
+              <li>Network details</li>
+            </ul>
+            <p class="cs-problem" data-key="automation-problem-risk"><b>Risk:</b> Manual entry meant errors and inconsistencies across pages, and every update meant redoing the same work dozens of times.</p>
+            <p class="cs-problem" data-key="automation-problem-challenge"><b>Content challenge:</b> Keep 60+ plan pages accurate and consistent, with the same design, without making every update a manual job.</p>
+
+            <p class="cs-stage">My approach</p>
+            <ul class="cs-approach" data-key="automation-approach">
+              <li><b>Built a CMS component to read plan data from a spreadsheet.</b> The page's design and UI stayed exactly the same as before.</li>
+              <li><b>Made the spreadsheet the single source of truth.</b> Reviewing data across 60+ plans for consistency became one task instead of sixty separate ones.</li>
+              <li><b>Created a process for benefits experts to update the data.</b> Benefits experts could update plan data directly, without engineering support or CMS training.</li>
+            </ul>
+          </div>
+          <aside class="cs-results-card plum">
+            <p class="cs-results-label">Results</p>
+            <div class="rstat"><p class="num" data-key="automation-stat1-num">60+</p><p class="label" data-key="automation-stat1-label">Individual plans kept consistent from one content source</p></div>
+            <div class="rstat"><p class="num" data-key="automation-stat2-num">70+</p><p class="label" data-key="automation-stat2-label">Benefit elements per plan, no longer entered by hand</p></div>
+            <div class="rstat"><p class="num" data-key="automation-stat3-num">1 source</p><p class="label" data-key="automation-stat3-label">Of truth, editable by benefits experts without engineering</p></div>
+            <p class="cs-results-note" data-key="automation-note">The same instinct as the Value taxonomy in my Meta work: build the system once, and let it hold up at scale.</p>
+          </aside>
+        </div>
+
+        <div class="cs-screens">
+          <p class="cs-screens-label" data-key="automation-screens-label">From the live site</p>
+          <a class="cs-screen-board" href="assets/case-study-bcbsm/plan-detail-page.png" target="_blank" rel="noopener">
+            <img src="assets/case-study-bcbsm/plan-detail-page.png" alt="Individual health plan detail page, one of 60+ generated from the same content source">
+            <p class="cap" data-key="automation-cap1">Every plan detail page is generated from the same shared content source — same design, same structure, different data. <b>Click to open full resolution.</b></p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 GM -->
+  <div style="background:#F5E2D8">
+    <div class="section cs-band">
+      <div class="cs-section gm" id="gm">
+        <h2 data-key="gm-h2">Helping GM employees understand their new plans</h2>
+        <div class="cs-theme-tags rust"><span class="cs-theme-tag" data-key="gm-tag1">Enterprise partnership</span><span class="sep">·</span><span class="cs-theme-tag" data-key="gm-tag2">Plain-language health content</span><span class="sep">·</span><span class="cs-theme-tag" data-key="gm-tag3">CTA design</span></div>
+        <p class="my-role"><span class="cs-role-tag">My role</span><span data-key="gm-role">Product Owner</span></p>
+
+        <div class="cs-split reverse">
+          <aside class="cs-results-card rust">
+            <p class="cs-results-label">Results</p>
+            <div class="rstat"><p class="num" data-key="gm-stat1-num">3</p><p class="label" data-key="gm-stat1-label">Plan options compared in one side-by-side table, so the tradeoff reads at a glance</p></div>
+            <div class="rstat"><p class="num" data-key="gm-stat2-num">4</p><p class="label" data-key="gm-stat2-label">FAQ categories, organized by the questions people actually ask</p></div>
+            <p class="cs-results-note" data-key="gm-note">The microsite educated first and encouraged enrollment only when the plan fit someone's health needs.</p>
+          </aside>
+          <div class="cs-split-main">
+            <p class="cs-stage">Problem space</p>
+            <p class="cs-problem lead" data-key="gm-problem">GM was launching a new, lower-cost health plan for salaried employees with a much smaller provider network. Employees needed to understand that tradeoff well enough to choose confidently:</p>
+            <ul class="cs-problem-list" data-key="gm-problem-list">
+              <li><b>Network:</b>&nbsp;one hospital network</li>
+              <li><b>Cost:</b>&nbsp;a lower-cost plan</li>
+              <li><b>Coverage</b> comparable to their existing options</li>
+            </ul>
+            <p class="cs-problem" data-key="gm-problem-risk"><b>Risk:</b> If employees chose this plan without understanding the network, they could end up unhappy with it.</p>
+            <p class="cs-problem" data-key="gm-problem-challenge"><b>Content challenge:</b> Help employees understand the tradeoff well enough to choose, and encourage enrollment only if the plan fit.</p>
+
+            <p class="cs-stage">My approach</p>
+            <ul class="cs-approach" data-key="gm-approach">
+              <li><b>Built a co-branded microsite with General Motors.</b> The new plan was highlighted with the tradeoffs clearly explained.</li>
+              <li><b>Designed a side-by-side comparison table.</b> Network, cost and coverage side by side, so the tradeoff was visible at a glance instead of buried in a benefits PDF.</li>
+              <li><b>Organized the FAQ by real questions.</b> Benefits, Coverage, Providers and Membership instead of one long, undifferentiated list.</li>
+              <li><b>Made education the primary goal, not enrollment.</b> Educate first, encourage enrollment only if the plan fit someone's health needs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cs-screens">
+          <p class="cs-screens-label" data-key="gm-screens-label">What we shipped</p>
+          <a class="cs-screen-board" href="assets/case-study-bcbsm/gm-landing-hero.png" target="_blank" rel="noopener">
+            <img src="assets/case-study-bcbsm/gm-landing-hero.png" alt="GM Salaried Health Plan Options landing page, co-branded with Blue Cross Blue Shield of Michigan">
+            <p class="cap" data-key="gm-cap1"><b>Co-branded landing page.</b> A distinct decision gets a distinct space. <b>Click to open full resolution.</b></p>
+          </a>
+          <div class="cs-screen-row">
+            <div class="cs-screen-card">
+              <img src="assets/case-study-bcbsm/gm-comparison-table.png" alt="Comparison table showing ConnectedCare, Basic, and Standard plan options with monthly cost and coverage details">
+              <p class="cap" data-key="gm-cap2"><b>The tradeoff, made scannable.</b> Network, monthly cost and coverage side by side.</p>
+            </div>
+            <div class="cs-screen-card">
+              <img src="assets/case-study-bcbsm/gm-faq.png" alt="ConnectedCare FAQ organized into topic tabs: Benefits, Coverage, Providers, Membership">
+              <p class="cap" data-key="gm-cap3"><b>Questions people actually ask.</b> FAQs organized by the questions people ask, not by internal plan structure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 CAREERS -->
+  <div style="background:#FAF6EC">
+    <div class="section cs-band">
+      <div class="cs-section" id="careers">
+        <h2 data-key="careers-h2">Tying a redesign to measurable business goals</h2>
+        <div class="cs-theme-tags"><span class="cs-theme-tag" data-key="careers-tag1">Content strategy</span><span class="sep">·</span><span class="cs-theme-tag" data-key="careers-tag2">Mobile-first redesign</span><span class="sep">·</span><span class="cs-theme-tag" data-key="careers-tag3">Stakeholder alignment</span></div>
+        <p class="my-role"><span class="cs-role-tag">My role</span><span data-key="careers-role">Product Owner</span></p>
+
+        <div class="cs-split">
+          <div class="cs-split-main">
+            <p class="cs-stage">Problem space</p>
+            <p class="cs-problem lead" data-key="careers-problem">The public Careers page was desktop-only and text-heavy, built before anyone treated it as a recruiting tool. It had three calls to action with no clear priority and no tie to what Talent Acquisition needed:</p>
+            <ul class="cs-problem-list" data-key="careers-problem-list">
+              <li>Desktop only</li>
+              <li>Text-heavy, outdated design</li>
+              <li>Three competing calls to action</li>
+            </ul>
+            <p class="cs-problem" data-key="careers-problem-risk"><b>Risk:</b> Simply updating the website to be more modern wouldn't move the needle on Talent Acquisition's actual business goals.</p>
+            <p class="cs-problem" data-key="careers-problem-challenge"><b>Content challenge:</b> Give the page one job, tied to one measurable goal: increasing qualified candidates for the Talent Acquisition team.</p>
+
+            <p class="cs-stage">My approach</p>
+            <ul class="cs-approach" data-key="careers-approach">
+              <li><b>Started from Talent Acquisition's goal.</b>&nbsp;They wanted more qualified candidates, not a simple design refresh.</li>
+              <li><b>Replaced three competing calls to action with one.</b> It follows the reader down the page, instead of asking them to choose a path before they have context.</li>
+              <li><b>Rebuilt it mobile-first.</b> Most candidates weren't finding the page from a desktop, so the layout wasn't adapted down from a desktop design.</li>
+              <li><b>Let photography and interactive elements carry part of the story.</b> Dense paragraphs no longer had to do all the persuading alone.</li>
+            </ul>
+          </div>
+          <aside class="cs-results-card">
+            <p class="cs-results-label">Results</p>
+            <div class="rstat"><p class="num" data-key="careers-stat1-num">3 → 1</p><p class="label" data-key="careers-stat1-label">Calls to action, with the one that remains following the reader down the page</p></div>
+            <div class="rstat"><p class="num" data-key="careers-stat2-num">Mobile-first</p><p class="label" data-key="careers-stat2-label">Rebuilt for phones first, not adapted down from a desktop design</p></div>
+            <p class="cs-results-note" data-key="careers-note">The page now has one job: bringing in more qualified candidates for Talent Acquisition.</p>
+          </aside>
+        </div>
+
+        <div class="cs-screens">
+          <p class="cs-screens-label" data-key="careers-screens-label">Before and after</p>
+          <a class="cs-screen-board" href="assets/case-study-bcbsm/careers-before-after.png" target="_blank" rel="noopener">
+            <img src="assets/case-study-bcbsm/careers-before-after.png" alt="Side-by-side comparison of the old desktop-only careers page and the new mobile-responsive, story-driven redesign">
+            <p class="cap" data-key="careers-cap1">The old page, left, and the redesign, right — one call to action in place of three, on a layout built for mobile first. <b>Click to open full resolution.</b></p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div style="background:#6E3159">
+    <div class="section cs-band cs-close">
+      <div class="cs-close-grid">
+        <h2>What these three have in common</h2>
+        <div>
+          <ul data-key="closing-list">
+            <li><b>Content tied to a named business goal.</b> Every project traces back to something a stakeholder could be measured on.</li>
+            <li><b>Plain language for genuinely complex decisions.</b> Health benefits are dense by nature. The goal was to make the tradeoffs clear, not simplify it into something misleading.</li>
+            <li><b>Content systems, not just pages.</b> Build the system once, let it hold up at scale.</li>
+            <li><b>Editorial judgment under pressure to just convert.</b> The goal is to inform for solid decision making, not just drive up enrollment.</li>
+          </ul>
+          <p data-key="closing-note">Want more detail on any of these case studies? <a href="mailto:jessicacnunez@gmail.com">Email me</a>&nbsp;and I'm&nbsp;happy to walk through it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#F5EEDF">
+    <div class="section next-case">
+      <p class="next-case-label">Next case study</p>
+      <a class="next-case-link" href="case-study-meta.html">Meta, Ad products
+        <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer style="padding:28px 72px 48px;font-family:'Space Grotesk',sans-serif;font-size:12px;color:#4A5A38">© 2026 Jessica Nunez</footer>
+
+<script>
+(function () {
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.scrollTo(0, 0);
+
+  var PASSWORD = "userfirst";
+  var gate = document.getElementById('gate');
+  var content = document.getElementById('cs-content');
+  var form = document.getElementById('gate-form');
+  var input = document.getElementById('gate-password');
+  var error = document.getElementById('gate-error');
+
+  function unlock() {
+    gate.classList.add('hidden');
+    content.classList.remove('hidden');
+    window.scrollTo(0, 0);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { window.scrollTo(0, 0); });
+    });
+  }
+
+  try {
+    if (sessionStorage.getItem('portfolio-unlocked') === '1') unlock();
+  } catch (e) {}
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (input.value === PASSWORD) {
+      try { sessionStorage.setItem('portfolio-unlocked', '1'); } catch (e) {}
+      error.textContent = '';
+      unlock();
+    } else {
+      error.textContent = 'Incorrect password.';
+      input.value = '';
+      input.focus();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
